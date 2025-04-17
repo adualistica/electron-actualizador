@@ -9,7 +9,7 @@ function App(): JSX.Element {
       <img alt="logo" className="logo" src={electronLogo} />
       <div className="creator">Powered by electron-vite</div>
       <div className="text">
-        Build an Electron app with <span className="react">React</span>
+        Build an Electron app with <span className="react">React ADUALISTICA</span>
         &nbsp;and <span className="ts">TypeScript</span>
       </div>
       <p className="tip">
@@ -18,7 +18,7 @@ function App(): JSX.Element {
       <div className="actions">
         <div className="action">
           <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
+            Documentation Adualistica de Hondu
           </a>
         </div>
         <div className="action">
