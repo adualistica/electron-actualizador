@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -36,6 +36,27 @@ function createWindow(): void {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
 }
+
+autoUpdater.on('update-available', () => {
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Actualización disponible',
+    message: 'Se está descargando una nueva versión...',
+  });
+});
+
+autoUpdater.on('update-downloaded', () => {
+  dialog.showMessageBox({
+    type: 'info',
+    title: 'Actualización lista',
+    message: 'La nueva versión se descargó. ¿Deseás reiniciar para instalarla?',
+    buttons: ['Sí', 'Después']
+  }).then(result => {
+    if (result.response === 0) {
+      autoUpdater.quitAndInstall();
+    }
+  });
+});
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

@@ -18,7 +18,7 @@ function App(): JSX.Element {
       <div className="actions">
         <div className="action">
           <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation Adualistica de Hondu
+            ADUALISTICA - ADUANAS Y LOGISTICS INTEGRADA
           </a>
         </div>
         <div className="action">
