@@ -1,6 +1,6 @@
 {
   "name": "electron-actualizador",
-  "version": "5.0.5",
+  "version": "6.0.0",
   "description": "An Adualistica application with React and TypeScript",
   "main": "./out/main/index.js",
   "repository": "https://github.com/adualistica/electron-actualizador",
