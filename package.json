@@ -1,20 +1,23 @@
 {
   "name": "electron-actualizador",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "An Adualistica application with React and TypeScript",
   "main": "./out/main/index.js",
+  "repository": "https://github.com/adualistica/electron-actualizador",
+  "publish": [
+      {
+        "provider": "github",
+        "releaseType": "release"
+      }
+    ],
   "build": {
     "appId": "com.adualistica.electron-actualizador",
     "productName": "Adualistica App",
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "adualistica",
-        "repo": "https://github.com/adualistica/electron-actualizador"
-      }
-    ],
     "win": {
       "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
     }
   },
   "author": "adualistica.com",
