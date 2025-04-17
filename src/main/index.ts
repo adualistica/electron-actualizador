@@ -1,40 +1,9 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
-import log from 'electron-log';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { autoUpdater } from 'electron-updater';
 
-class AppUpdater {
-  constructor() {
-    log.transports.file.level = 'info';
-    autoUpdater.logger = log;
-
-    autoUpdater.on('update-available', () => {
-      log.info('Actualización disponible. Descargando...');
-    });
-
-    autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-      const dialogOpts = {
-        type: 'info',
-        buttons: ['Reiniciar ahora', 'Más tarde'],
-        title: 'Actualización disponible',
-        message: releaseName,
-        detail: 'Una nueva versión ha sido descargada. Reinicia la aplicación para aplicar los cambios.'
-      };
-
-      dialog.showMessageBox(dialogOpts).then((returnValue) => {
-        if (returnValue.response === 0) autoUpdater.quitAndInstall();
-      });
-    });
-
-    autoUpdater.on('error', (err) => {
-      log.error('Error en la actualización: ' + err);
-    });
-
-    autoUpdater.checkForUpdatesAndNotify();
-  }
-}
 
 function createWindow(): void {
   // Create the browser window.
@@ -87,7 +56,7 @@ app.whenReady().then(() => {
 
   createWindow()
 
-  new AppUpdater();
+  autoUpdater.checkForUpdatesAndNotify();
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

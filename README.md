@@ -37,4 +37,4 @@ Pasos --
 
 1. yarn create @quick-start/electron electron-actualizador --template react
 2. npm install
-3. n
+3. Instale npm i -D @types/node para ver si resolvia lo de react pero nada

@@ -1,10 +1,24 @@
 {
   "name": "electron-actualizador",
   "version": "1.0.0",
-  "description": "An Electron application with React and TypeScript",
+  "description": "An Adualistica application with React and TypeScript",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
+  "build": {
+    "appId": "com.adualistica.electron-actualizador",
+    "productName": "Adualistica App",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "adualistica",
+        "repo": "https://github.com/adualistica/electron-actualizador"
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "author": "adualistica.com",
+  "homepage": "https://adualistica.com",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
@@ -18,7 +32,9 @@
     "build:unpack": "npm run build && electron-builder --dir",
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
-    "build:linux": "electron-vite build && electron-builder --linux"
+    "build:linux": "electron-vite build && electron-builder --linux",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
@@ -29,10 +45,11 @@
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
     "@electron-toolkit/eslint-config-ts": "^2.0.0",
     "@electron-toolkit/tsconfig": "^1.0.1",
-    "@types/node": "^20.14.8",
+    "@types/node": "^20.17.30",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react-swc": "^3.9.0",
     "electron": "^31.0.2",
     "electron-builder": "^24.13.3",
     "electron-vite": "^3.1.0",
